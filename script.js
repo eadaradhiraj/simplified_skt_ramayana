@@ -1,11 +1,9 @@
-var tableRows = document.querySelectorAll("tr");
+function highlight(className) {
+  // Remove highlights from all sentences
+  const allSentences = document.querySelectorAll('span');
+  allSentences.forEach(s => s.classList.remove('highlight'));
 
-// Add a click event listener to each table row
-tableRows.forEach(function(sel_row) {
-  sel_row.addEventListener("click", function() {
-    tableRows.forEach(function(un_sel_row) {
-      un_sel_row.style.color = "black";
-    });
-    this.style.color = "red";
-  });
-});
+  // Highlight the corresponding sentences by class name
+  const matchingSentences = document.querySelectorAll(`.${className}`);
+  matchingSentences.forEach(s => s.classList.add('highlight'));
+}
